@@ -35,7 +35,15 @@ const Navbar = () => {
     <nav className="fixed top-0 w-full z-50 backdrop-blur-md bg-white/70 dark:bg-[#0D1117]/70 border-b border-gray-200 dark:border-gray-700 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          <Link to="home" href="#home" smooth={true} duration={500} offset={-65} spy={true} className="text-2xl font-bold text-gray-900 dark:text-white cursor-pointer">
+          <Link
+            to="home"
+            href="#home"
+            smooth={true}
+            duration={500}
+            offset={-65}
+            spy={true}
+            className="text-2xl font-bold text-gray-900 dark:text-white cursor-pointer"
+          >
             S.
           </Link>
           <div className="hidden md:flex items-center space-x-8">
@@ -48,7 +56,7 @@ const Navbar = () => {
                 duration={500}
                 offset={-65}
                 spy={true}
-                activeClass="!text-blue-600 dark:!text-blue-400 font-semibold border-b-2 border-blue-600 dark:border-blue-400"
+                activeClass="!text-blue-600 dark:!text-blue-400  border-b-2 border-blue-600 dark:border-blue-400"
                 className="cursor-pointer text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300 py-1"
               >
                 {link.name}
@@ -80,8 +88,9 @@ const Navbar = () => {
         </div>
       </div>
       <div
-        className={`md:hidden absolute top-16 left-0 w-full bg-white dark:bg-[#0D1117] border-t border-gray-200 dark:border-gray-700 transition-all duration-300 overflow-hidden ${isMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
-          }`}
+        className={`md:hidden absolute top-16 left-0 w-full bg-white dark:bg-[#0D1117] border-t border-gray-200 dark:border-gray-700 transition-all duration-300 overflow-hidden ${
+          isMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+        }`}
       >
         <ul className="flex flex-col items-center py-4 space-y-4">
           {navLinks.map((link) => (
@@ -94,7 +103,7 @@ const Navbar = () => {
               offset={-65}
               spy={true}
               onClick={() => setIsMenuOpen(false)}
-              activeClass="!text-blue-600 dark:!text-blue-400 font-semibold"
+              activeClass="!text-blue-600 dark:!text-blue-400 "
               className="cursor-pointer text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300"
             >
               {link.name}
