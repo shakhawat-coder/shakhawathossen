@@ -1,105 +1,88 @@
+"use client";
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
+import { motion } from "framer-motion";
+import { projectsData } from "@/constants/projects";
 
 const Projects = () => {
-  const projects = [
-    {
-      title: "Diagnostic",
-      description:
-        "A responsive diagnostic center website built with React and Shadcn UI. Features include service listings, appointment booking, and contact forms with validation using zod.",
-      image: "/diagnostic.png",
-      link: "https://opti-diagnostic.vercel.app/",
-    },
-    {
-      title: "Education Consultancy",
-      description:
-        "An education consultancy website built with React and Tailwind CSS. Features include course listings, consultation forms, and contact information.",
-      image: "/edu-consultancy.png",
-      link: "https://opti-edu-consultancy.vercel.app/",
-    },
-    {
-      title: "E-commerce",
-      description:
-        "A full-featured e-commerce website built with Bootstrap. Features include product listings, shopping cart, and user dashboard.",
-      image: "/ecommerce.png",
-      link: "https://optilius-ecom.vercel.app/",
-    },
-    {
-      title: "News Portal",
-      description:
-        "A news portal built with Bootstrap. Features include news categories and live updates.",
-      image: "/newspaper.png",
-      link: "https://newspaper-sable.vercel.app/",
-    },
-    {
-      title: "Real Estate Platform",
-      description:
-        "A responsive real estate listing platform using Bootstrap. ",
-      image: "/real-estate.png",
-      link: "https://real-estate-drab-xi.vercel.app/",
-    },
-    {
-      title: "Multi-Service",
-      description:
-        "A multi-service platform offering various services with a clean UI built using Bootstrap.Features include service listings,service search,service details and user reviews.",
-      image: "/multi-service.png",
-      link: "https://multi-service-livid.vercel.app/",
-    },
-    {
-      title: "Student & Parent Management System",
-      description:
-        "A comprehensive student and parent management system built with Bootstrap. Features include student profiles, parent communication, and academic tracking.",
-      image: "/student-panel.png",
-      link: "https://school-management-tau-bice.vercel.app/",
-    },
-    {
-      title: "Gym",
-      description:
-        "A modern gym website built with Bootstrap. Features include class schedules, and membership plans.",
-      image: "/gym.png",
-      link: "https://optigym-dusky.vercel.app/",
-    },
-  ];
   return (
     <section
       id="mywork"
-      className="flex flex-col justify-center items-center bg-gray-50 dark:bg-[#0D1117] text-gray-800 dark:text-gray-200 px-6 py-16 transition-colors duration-500"
+      className="min-h-screen flex flex-col justify-center items-center py-32 px-6 transition-colors duration-500 bg-[linear-gradient(rgba(255,255,255,0.8),rgba(255,255,255,0.8)),url('/bannerbg2.jpg')] dark:bg-[linear-gradient(rgba(0,0,0,0.9),rgba(0,0,0,0.9)),url('/bannerbg2.jpg')] bg-cover bg-center bg-fixed relative overflow-hidden"
     >
-      <div className="max-w-6xl mx-auto text-center">
-        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-gray-800 dark:text-gray-400">
-          Some of My Works
-        </h2>
+      {/* Background Decorative Elements */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{
+          opacity: [0.03, 0.08, 0.03],
+          scale: [1, 1.2, 1],
+        }}
+        transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+        className="absolute top-1/2 left-1/4 w-[600px] h-[600px] bg-blue-500/20 rounded-full blur-[150px] pointer-events-none"
+      />
+
+      <div className="max-w-7xl mx-auto w-full relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-24"
+        >
+          <h2 className="text-4xl md:text-7xl font-black text-gray-900 dark:text-white mb-6 uppercase tracking-tighter drop-shadow-2xl">
+            Featured <span className="text-blue-600">Projects</span>
+          </h2>
+          <div className="h-1.5 w-24 bg-blue-600 mx-auto rounded-full mb-8 shadow-[0_0_15px_rgba(37,99,235,0.5)]"></div>
+          <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto text-lg md:text-xl font-medium italic italic capitalize">
+            "Turning complex challenges into elegant, high-impact digital solutions."
+          </p>
+        </motion.div>
 
         {/* Project Grid */}
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {projects.map((project, index) => (
-            <a
+        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+          {projectsData.map((project, index) => (
+            <motion.div
               key={index}
-              href={project.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative block bg-white dark:bg-[#161B22] rounded-xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              className="group relative bg-white/40 dark:bg-[#161B22]/50 backdrop-blur-2xl rounded-[2.5rem] border-2 border-white/30 dark:border-white/10 overflow-hidden shadow-2xl transition-all duration-500 hover:shadow-blue-600/10 hover:border-blue-600/30"
             >
-              <div className="overflow-hidden h-64 relative">
+              <div className="overflow-hidden h-72 relative">
                 <Image
                   src={project.image}
                   alt={project.title}
-                  width={400}
-                  height={256}
-                  className="w-full object-top object-cover transition-transform duration-[6s] ease-linear group-hover:-translate-y-[calc(100%-16rem)]"
+                  width={600}
+                  height={400}
+                  className="w-full object-top object-cover transition-transform duration-[6s] ease-linear group-hover:-translate-y-[calc(100%-18rem)]"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center p-8">
+                  <Link
+                    href={`/projects/${project.id}`}
+                    className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full font-black uppercase text-xs tracking-widest transition-all transform hover:scale-105 active:scale-95 cursor-pointer shadow-lg shadow-blue-600/30"
+                  >
+                    View Details
+                  </Link>
+                </div>
               </div>
 
-              {/* Content */}
-              <div className="p-5 text-left">
-                <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white group-hover:text-blue-500 transition-colors">
+              <div className="p-8 text-left">
+                <h3 className="text-2xl font-black text-gray-900 dark:text-white mb-3 group-hover:text-blue-600 transition-colors">
                   {project.title}
                 </h3>
-                <p className="text-sm text-gray-600 dark:text-gray-400">
+                <p className="text-sm text-gray-600 dark:text-gray-400 mb-6 leading-relaxed line-clamp-2">
                   {project.description}
                 </p>
+                <div className="flex flex-wrap gap-2">
+                  {project.techStack.slice(0, 3).map((tech, i) => (
+                    <span key={i} className="px-3 py-1 bg-blue-600/10 text-blue-600 dark:text-blue-400 text-[10px] font-black uppercase tracking-widest rounded-lg">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
               </div>
-            </a>
+            </motion.div>
           ))}
         </div>
       </div>

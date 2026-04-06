@@ -4,6 +4,7 @@ import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import emailjs from "@emailjs/browser";
+import { motion } from "framer-motion";
 import { HiOutlineMail } from "react-icons/hi";
 import { MdOutlinePhoneInTalk } from "react-icons/md";
 import { BsGithub, BsLinkedin, BsWhatsapp } from "react-icons/bs";
@@ -56,237 +57,153 @@ const Contact = () => {
       }
     },
   });
+
+  const itemVariants = {
+    hidden: { opacity: 0, x: -20 },
+    visible: { opacity: 1, x: 0 }
+  };
+
   return (
     <section
       id="contact"
-      className="bg-[linear-gradient(rgba(255,255,255,0.9),rgba(255,255,255,0.9)),url('/bannerbg2.jpg')] dark:bg-[linear-gradient(rgba(0,0,0,0.95),rgba(0,0,0,0.95)),url('/bannerbg2.jpg')] bg-cover bg-center min-h-screen bg-[#f9f9f9] dark:bg-[#050505] text-gray-800 dark:text-gray-200 px-2 sm:px-4 lg:px-6 py-16"
+      className="relative min-h-screen py-20 px-4 sm:px-6 lg:px-8 transition-colors duration-500 bg-gray-50 dark:bg-[#0D1117] overflow-hidden"
     >
-      <div className="max-w-6xl mx-auto  rounded-lg shadow-md">
-        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-gray-800 dark:text-gray-400 text-center">
-          Contact With Me
-        </h2>
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-y-4 lg:gap-6">
-          <div className="col-span-1 border rounded-md border-gray-300 dark:border-gray-600 backdrop-blur-md">
-            <div className="p-3 sm:p-6">
-              <p className="text-gray-700 dark:text-gray-300 mb-4">
-                Feel free to reach out to me for any inquiries, collaborations,
-                or just to say hello!
-              </p>
-              <div className="flex items-center space-x-3 text-gray-700 dark:text-gray-300">
-                <div className="flex items-center justify-center w-10 h-10 rounded-full bg-green-600 ">
-                  <MdOutlinePhoneInTalk className="w-5 h-5 text-white " />
-                </div>
-                <a
-                  href="tel:+8801780551403"
-                  className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300"
-                >
-                  +8801780551403
-                </a>
-              </div>
-              <div className="flex  items-center space-x-1 text-gray-700 dark:text-gray-300 mt-4">
-                <div className="flex items-center justify-center w-10 h-10 rounded-full bg-blue-600 ">
-                  <HiOutlineMail className="w-5 h-5 text-white " />
-                </div>
-                <a
-                  href="mailto:shakhawathossen188@gamil.com"
-                  className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300 truncate"
-                >
-                  shakhawathossen188@gmail.com
-                </a>
-              </div>
+      {/* Background decoration */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl -z-10 translate-x-1/2 -translate-y-1/2"></div>
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl -z-10 -translate-x-1/2 translate-y-1/2"></div>
 
-              <div className="flex items-center space-x-3 mt-4 text-gray-700 dark:text-gray-300">
-                <div className="flex items-center justify-center w-10 h-10 rounded-full bg-green-600">
-                  <BsWhatsapp className="w-5 h-5 text-white" />
+      <div className="max-w-7xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+            Get In <span className="text-blue-600">Touch</span>
+          </h2>
+          <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto text-lg">
+            Have a project in mind or just want to chat? I'm always open to new opportunities and collaborations.
+          </p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+          {/* Contact Info */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="space-y-6"
+          >
+            {[
+              { icon: <MdOutlinePhoneInTalk />, color: "bg-green-500", label: "Phone", value: "+8801780551403", href: "tel:+8801780551403" },
+              { icon: <HiOutlineMail />, color: "bg-blue-500", label: "Email", value: "shakhawathossen188@gmail.com", href: "mailto:shakhawathossen188@gmail.com" },
+              { icon: <BsWhatsapp />, color: "bg-green-600", label: "WhatsApp", value: "+8801780551403", href: "https://wa.me/8801780551403" },
+              { icon: <BsLinkedin />, color: "bg-blue-600", label: "LinkedIn", value: "Md Shakhawat Hossen", href: "https://www.linkedin.com/in/md-shakhawat-hossen-209992180/" },
+              { icon: <BsGithub />, color: "bg-gray-900", label: "GitHub", value: "shakhawat-coder", href: "https://github.com/shakhawat-coder" }
+            ].map((item, index) => (
+              <motion.a
+                key={index}
+                href={item.href}
+                target={item.href.startsWith("http") ? "_blank" : undefined}
+                rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                whileHover={{ x: 10 }}
+                className="flex items-center p-4 bg-white dark:bg-[#161B22] rounded-2xl border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-md transition-all group"
+              >
+                <div className={`w-12 h-12 ${item.color} rounded-xl flex items-center justify-center text-white text-xl shadow-lg shadow-${item.color.split('-')[1]}-500/20`}>
+                  {item.icon}
                 </div>
-                <a
-                  href="https://wa.me/8801780551403"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300"
-                >
-                  +8801780551403
-                </a>
-              </div>
-              <div className="flex items-center space-x-3 mt-4 text-gray-700 dark:text-gray-300">
-                <div className="flex items-center justify-center w-10 h-10 rounded-full bg-blue-600">
-                  <BsLinkedin className="w-5 h-5 text-white" />
+                <div className="ml-4 overflow-hidden">
+                  <p className="text-xs font-bold text-gray-400 uppercase tracking-widest">{item.label}</p>
+                  <p className="text-gray-900 dark:text-gray-200 font-medium truncate">{item.value}</p>
                 </div>
-                <a
-                  href="https://www.linkedin.com/in/md-shakhawat-hossen-209992180/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300"
-                >
-                  Md Shakhawat Hossen
-                </a>
-              </div>
-              <div className="flex items-center space-x-3 mt-4 text-gray-700 dark:text-gray-300">
-                <div className="flex items-center justify-center w-10 h-10 rounded-full bg-black dark:bg-white">
-                  <BsGithub className="w-5 h-5 text-white dark:text-black" />
-                </div>
-                <a
-                  href="https://github.com/shakhawat-coder"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300"
-                >
-                  shakhawat-coder
-                </a>
-              </div>
-            </div>
-          </div>
-          <div className="col-span-2 border backdrop-blur-md rounded-md border-gray-300 dark:border-gray-600 p-6">
-            <form onSubmit={formik.handleSubmit} className="space-y-4">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label
-                    htmlFor="name"
-                    className="block text-gray-700 dark:text-gray-400"
-                  >
-                    Name
-                  </label>
+              </motion.a>
+            ))}
+          </motion.div>
+
+          {/* Contact Form */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="lg:col-span-2 bg-white dark:bg-[#161B22] p-8 sm:p-10 rounded-[2rem] border border-gray-100 dark:border-gray-800 shadow-xl"
+          >
+            <form onSubmit={formik.handleSubmit} className="space-y-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div className="space-y-2">
+                  <label htmlFor="name" className="text-sm font-bold text-gray-700 dark:text-gray-300 ml-1">Name</label>
                   <input
                     type="text"
                     id="name"
-                    name="name"
-                    placeholder="Enter Your Name..."
-                    value={formik.values.name}
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
-                    className={`w-full px-3 py-2 border ${
-                      formik.touched.name && formik.errors.name
-                        ? "border-red-500"
-                        : "border-gray-300 dark:border-gray-600"
-                    } rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600 dark:focus:ring-blue-400`}
+                    {...formik.getFieldProps('name')}
+                    placeholder="John Doe"
+                    className={`w-full px-5 py-4 bg-gray-50 dark:bg-[#0D1117] border ${formik.touched.name && formik.errors.name ? 'border-red-500' : 'border-gray-100 dark:border-gray-800'} rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-600/20 focus:border-blue-600 transition-all`}
                   />
-                  {formik.touched.name && formik.errors.name && (
-                    <div className="text-red-500 mt-1">
-                      {formik.errors.name}
-                    </div>
-                  )}
+                  {formik.touched.name && formik.errors.name && <p className="text-red-500 text-xs ml-1">{formik.errors.name}</p>}
                 </div>
 
-                <div>
-                  <label
-                    htmlFor="phone"
-                    className="block text-gray-700 dark:text-gray-400"
-                  >
-                    Phone
-                  </label>
+                <div className="space-y-2">
+                  <label htmlFor="phone" className="text-sm font-bold text-gray-700 dark:text-gray-300 ml-1">Phone</label>
                   <input
                     type="text"
                     id="phone"
-                    name="phone"
-                    placeholder="Enter Your Phone Number..."
-                    value={formik.values.phone}
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
-                    className={`w-full px-3 py-2 border ${
-                      formik.touched.phone && formik.errors.phone
-                        ? "border-red-500"
-                        : "border-gray-300 dark:border-gray-600"
-                    } rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600 dark:focus:ring-blue-400`}
+                    {...formik.getFieldProps('phone')}
+                    placeholder="+8801..."
+                    className={`w-full px-5 py-4 bg-gray-50 dark:bg-[#0D1117] border ${formik.touched.phone && formik.errors.phone ? 'border-red-500' : 'border-gray-100 dark:border-gray-800'} rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-600/20 focus:border-blue-600 transition-all`}
                   />
-                  {formik.touched.phone && formik.errors.phone && (
-                    <div className="text-red-500 mt-1">
-                      {formik.errors.phone}
-                    </div>
-                  )}
+                  {formik.touched.phone && formik.errors.phone && <p className="text-red-500 text-xs ml-1">{formik.errors.phone}</p>}
                 </div>
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label
-                    htmlFor="email"
-                    className="block text-gray-700 dark:text-gray-400"
-                  >
-                    Email
-                  </label>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div className="space-y-2">
+                  <label htmlFor="email" className="text-sm font-bold text-gray-700 dark:text-gray-300 ml-1">Email</label>
                   <input
                     type="email"
                     id="email"
-                    name="email"
-                    placeholder="Enter Your Email..."
-                    value={formik.values.email}
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
-                    className={`w-full px-3 py-2 border ${
-                      formik.touched.email && formik.errors.email
-                        ? "border-red-500"
-                        : "border-gray-300 dark:border-gray-600"
-                    } rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600 dark:focus:ring-blue-400`}
+                    {...formik.getFieldProps('email')}
+                    placeholder="john@example.com"
+                    className={`w-full px-5 py-4 bg-gray-50 dark:bg-[#0D1117] border ${formik.touched.email && formik.errors.email ? 'border-red-500' : 'border-gray-100 dark:border-gray-800'} rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-600/20 focus:border-blue-600 transition-all`}
                   />
-                  {formik.touched.email && formik.errors.email && (
-                    <div className="text-red-500 mt-1">
-                      {formik.errors.email}
-                    </div>
-                  )}
+                  {formik.touched.email && formik.errors.email && <p className="text-red-500 text-xs ml-1">{formik.errors.email}</p>}
                 </div>
 
-                <div>
-                  <label
-                    htmlFor="subject"
-                    className="block text-gray-700 dark:text-gray-400"
-                  >
-                    Subject
-                  </label>
+                <div className="space-y-2">
+                  <label htmlFor="subject" className="text-sm font-bold text-gray-700 dark:text-gray-300 ml-1">Subject</label>
                   <input
                     type="text"
                     id="subject"
-                    name="subject"
-                    placeholder="Enter Your Subject..."
-                    value={formik.values.subject}
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
-                    className={`w-full px-3 py-2 border ${
-                      formik.touched.subject && formik.errors.subject
-                        ? "border-red-500"
-                        : "border-gray-300 dark:border-gray-600"
-                    } rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600 dark:focus:ring-blue-400`}
+                    {...formik.getFieldProps('subject')}
+                    placeholder="Project Inquiry"
+                    className={`w-full px-5 py-4 bg-gray-50 dark:bg-[#0D1117] border ${formik.touched.subject && formik.errors.subject ? 'border-red-500' : 'border-gray-100 dark:border-gray-800'} rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-600/20 focus:border-blue-600 transition-all`}
                   />
-                  {formik.touched.subject && formik.errors.subject && (
-                    <div className="text-red-500 mt-1">
-                      {formik.errors.subject}
-                    </div>
-                  )}
+                  {formik.touched.subject && formik.errors.subject && <p className="text-red-500 text-xs ml-1">{formik.errors.subject}</p>}
                 </div>
               </div>
-              <div>
-                <label
-                  htmlFor="message"
-                  className="block text-gray-700 dark:text-gray-400"
-                >
-                  Message
-                </label>
+
+              <div className="space-y-2">
+                <label htmlFor="message" className="text-sm font-bold text-gray-700 dark:text-gray-300 ml-1">Message</label>
                 <textarea
                   id="message"
-                  name="message"
+                  {...formik.getFieldProps('message')}
                   rows="5"
-                  placeholder="Write Your Message..."
-                  value={formik.values.message}
-                  onChange={formik.handleChange}
-                  onBlur={formik.handleBlur}
-                  className={`w-full px-3 py-2 border ${
-                    formik.touched.message && formik.errors.message
-                      ? "border-red-500"
-                      : "border-gray-300 dark:border-gray-600"
-                  } rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600 dark:focus:ring-blue-400`}
+                  placeholder="Tell me about your project..."
+                  className={`w-full px-5 py-4 bg-gray-50 dark:bg-[#0D1117] border ${formik.touched.message && formik.errors.message ? 'border-red-500' : 'border-gray-100 dark:border-gray-800'} rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-600/20 focus:border-blue-600 transition-all resize-none`}
                 />
-                {formik.touched.message && formik.errors.message && (
-                  <div className="text-red-500 mt-1">
-                    {formik.errors.message}
-                  </div>
-                )}
+                {formik.touched.message && formik.errors.message && <p className="text-red-500 text-xs ml-1">{formik.errors.message}</p>}
               </div>
-              <button
+
+              <motion.button
                 type="submit"
-                className="w-full sm:w-auto px-6 py-3 font-medium bg-blue-600 dark:bg-transparent border border-transparent dark:border dark:border-white/50 text-white dark:text-white/50 rounded-md hover:bg-transparent hover:text-blue-600 hover:border hover:border-blue-600 transition-colors"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                disabled={formik.isSubmitting}
+                className="w-full py-5 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-2xl shadow-xl shadow-blue-500/20 transition-all disabled:opacity-50"
               >
-                Submit
-              </button>
+                {formik.isSubmitting ? "Sending..." : "Send Message"}
+              </motion.button>
             </form>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
@@ -294,3 +211,4 @@ const Contact = () => {
 };
 
 export default Contact;
+

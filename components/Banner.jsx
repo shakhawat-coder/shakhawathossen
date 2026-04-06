@@ -2,7 +2,9 @@
 
 import React from "react";
 import { TypeAnimation } from "react-type-animation";
-import { Link } from "react-scroll";
+import { BsDownload } from "react-icons/bs";
+import Link from "next/link";
+import { motion } from "framer-motion";
 
 const Banner = () => {
     return (
@@ -12,63 +14,119 @@ const Banner = () => {
   py-20 sm:py-24 text-center px-4 sm:px-8 md:px-12 
   bg-[linear-gradient(rgba(255,255,255,0.7),rgba(255,255,255,0.7)),url('/bannerbg2.jpg')] 
   dark:bg-[linear-gradient(rgba(0,0,0,0.85),rgba(0,0,0,0.85)),url('/bannerbg2.jpg')] 
-  bg-cover bg-center bg-no-repeat transition-colors duration-300"
+  bg-cover bg-center bg-no-repeat transition-colors duration-300 relative overflow-hidden"
         >
-            <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-gray-900 dark:text-white leading-tight">
-                Hi! I'm{" "}
-                <span className="text-blue-600 dark:text-blue-400">Shakhawat</span>
-            </h1>
-            <div className="text-2xl sm:text-3xl md:text-4xl text-gray-700 dark:text-gray-300 mt-4 font-medium">
-                <TypeAnimation
-                    sequence={[
-                        "Frontend Developer",
-                        2500,
-                        "Professional Coder",
-                        2500,
-                        "React Developer",
-                        2500,
-                        "Tailwind CSS Specialist",
-                        2500,
-                        "Creative Coder",
-                        2500,
-                    ]}
-                    speed={50}
-                    repeat={Infinity}
-                    className="inline-block text-blue-600 dark:text-blue-400"
-                />
-            </div>
-            <TypeAnimation
-                splitter={(str) => str.split(/(?= )/)}
-                sequence={[
-                    "A passionate frontend developer creating responsive, accessible, and visually refined web interfaces. Focused on building seamless digital experiences with React, Tailwind CSS, and modern JavaScript. Blending creativity and functionality to craft user-focused designs that perform beautifully across all devices and leave a lasting impression.",
-                    5000,
-                ]}
-                speed={{ type: "keyStrokeDelayInMs", value: 80 }}
-                omitDeletionAnimation={true}
-                style={{
-                    display: "block",
-                    marginTop: "1.5rem",
-                    maxWidth: "750px",
+            {/* Background Decorative Elements */}
+            <motion.div
+                initial={{ opacity: 0, scale: 0.5 }}
+                animate={{
+                    opacity: [0.1, 0.2, 0.1],
+                    x: [0, 50, -50, 0],
+                    y: [0, -50, 50, 0],
                 }}
-                className="text-base sm:text-lg text-gray-600 dark:text-gray-300 leading-relaxed mx-auto px-4"
-                repeat={0}
-                cursor={false}
+                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                className="absolute top-1/4 left-1/4 w-64 h-64 bg-blue-400 rounded-full blur-[100px] pointer-events-none opacity-20 dark:opacity-10"
             />
-            <div className="flex flex-wrap justify-center gap-4 mt-10">
-                <Link to="mywork" href="#mywork" smooth duration={500} offset={-80}>
-                    <button className="px-6 py-3 text-sm sm:text-base font-medium bg-blue-600 text-white rounded-md border border-transparent dark:bg-transparent dark:border dark:border-white dark:text-white hover:bg-transparent hover:text-blue-600 hover:border-blue-600 dark:hover:text-blue-400 transition-all duration-300">
-                        View My Work
-                    </button>
-                </Link>
+            <motion.div
+                initial={{ opacity: 0, scale: 0.5 }}
+                animate={{
+                    opacity: [0.1, 0.2, 0.1],
+                    x: [0, -60, 60, 0],
+                    y: [0, 60, -60, 0],
+                }}
+                transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+                className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-blue-600 rounded-full blur-[120px] pointer-events-none opacity-20 dark:opacity-10"
+            />
 
-                <Link to="contact" href="#contact" smooth duration={500} offset={-80}>
-                    <button className="px-6 py-3 text-sm sm:text-base font-medium border border-gray-800 dark:border-transparent dark:bg-blue-600 dark:text-white rounded-md hover:border-blue-600 hover:text-blue-600 dark:hover:bg-transparent dark:hover:text-blue-400 transition-all duration-300">
-                        Contact Me
-                    </button>
-                </Link>
-            </div>
+            <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+                className="z-10 w-full max-w-4xl mx-auto flex flex-col items-center"
+            >
+                <motion.h1
+                    initial={{ opacity: 0, x: -50 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.2, duration: 0.8 }}
+                    className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-gray-900 dark:text-white leading-tight"
+                >
+                    Hi! I'm{" "}
+                    <span className="text-blue-600 dark:text-blue-400">Shakhawat</span>
+                </motion.h1>
+
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.5, duration: 0.8 }}
+                    className="text-2xl sm:text-3xl md:text-4xl text-gray-700 dark:text-gray-300 mt-4 font-medium"
+                >
+                    <TypeAnimation
+                        sequence={[
+                            "Frontend Developer",
+                            2500,
+                            "Professional Coder",
+                            2500,
+                            "React Developer",
+                            2500,
+                            "Tailwind CSS Specialist",
+                            2500,
+                            "Creative Coder",
+                            2500,
+                        ]}
+                        speed={50}
+                        repeat={Infinity}
+                        className="inline-block text-blue-600 dark:text-blue-400"
+                    />
+                </motion.div>
+
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.8, duration: 0.8 }}
+                    className="mt-6 w-full max-w-[750px]"
+                >
+                    <TypeAnimation
+                        splitter={(str) => str.split(/(?= )/)}
+                        sequence={[
+                            "A passionate frontend developer creating responsive, accessible, and visually refined web interfaces. Focused on building seamless digital experiences with React, Tailwind CSS, and modern JavaScript. Blending creativity and functionality to craft user-focused designs that perform beautifully across all devices and leave a lasting impression.",
+                            5000,
+                        ]}
+                        speed={{ type: "keyStrokeDelayInMs", value: 40 }}
+                        omitDeletionAnimation={true}
+                        style={{
+                            display: "block",
+                        }}
+                        className="text-base sm:text-lg text-gray-600 dark:text-gray-300 leading-relaxed mx-auto px-4"
+                        repeat={0}
+                        cursor={false}
+                    />
+                </motion.div>
+
+                <motion.div
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: 1.1, duration: 0.5 }}
+                    className="mt-10"
+                >
+                    <Link
+                        href="/Shakhawat_Hossen_Resume_Classic.pdf"
+                        download
+                        className="inline-block"
+                    >
+                        <motion.button
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                            className="relative flex items-center gap-3 px-10 py-5 text-sm sm:text-lg font-black bg-blue-600 text-white rounded-full shadow-[6px_6px_0px_rgba(30,58,138,1)] hover:shadow-[4px_4px_0px_rgba(30,58,138,1)] hover:translate-y-[2px] hover:translate-x-[2px] active:shadow-none active:translate-y-[6px] active:translate-x-[6px] transition-all duration-200 cursor-pointer"
+                        >
+                            <BsDownload className="text-2xl" /> Download Resume
+                        </motion.button>
+                    </Link>
+                </motion.div>
+            </motion.div>
         </section>
     );
 };
 
 export default Banner;
+
+
