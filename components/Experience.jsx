@@ -27,7 +27,7 @@ const Experience = () => {
     return (
         <section
             id="experience"
-            className="min-h-screen flex flex-col justify-center items-center py-16 md:py-32 px-6 transition-colors duration-500 bg-[linear-gradient(rgba(255,255,255,0.75),rgba(255,255,255,0.75)),url('/bannerbg2.jpg')] dark:bg-[linear-gradient(rgba(0,0,0,0.9),rgba(0,0,0,0.9)),url('/bannerbg2.jpg')] bg-cover bg-center bg-fixed text-center relative overflow-hidden"
+            className="min-h-screen flex flex-col justify-center items-center py-16 md:py-32 px-6 transition-colors duration-500 bg-[linear-gradient(rgba(255,255,255,0.75),rgba(255,255,255,0.75)),url('/skillbg2.jpg')] dark:bg-[linear-gradient(rgba(0,0,0,0.9),rgba(0,0,0,0.9)),url('/skillbg2.jpg')] bg-cover bg-center bg-fixed text-center relative overflow-hidden"
         >
             {/* Background Decorative Elements */}
             <motion.div
@@ -58,7 +58,7 @@ const Experience = () => {
                     viewport={{ once: true }}
                     className="text-center mb-12 md:mb-24"
                 >
-                    <h2 className="text-4xl md:text-6xl font-black text-gray-900 dark:text-white mb-6 uppercase tracking-tighter drop-shadow-2xl">
+                    <h2 className="text-3xl sm:text-4xl md:text-6xl font-black text-gray-900 dark:text-white mb-6 uppercase tracking-tighter drop-shadow-2xl">
                         Professional <span className="text-blue-600">Journey</span>
                     </h2>
                     <div className="h-1.5 w-24 bg-blue-600 mx-auto rounded-full mb-8 shadow-[0_0_15px_rgba(37,99,235,0.5)]"></div>

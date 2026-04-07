@@ -112,24 +112,27 @@ const Skills = () => {
                     initial={{ opacity: 0, y: -40 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="mb-12 md:mb-24 relative inline-block"
+                    className="mb-12 md:mb-16 text-center"
                 >
-                    <h2 className="text-4xl md:text-6xl font-black mb-6 text-gray-900 dark:text-white uppercase tracking-tighter drop-shadow-2xl">
+                    <h2 className="text-3xl sm:text-4xl md:text-6xl font-black mb-6 text-gray-900 dark:text-white uppercase tracking-tighter drop-shadow-2xl">
                         My <span className="text-blue-600">Skills</span>
                     </h2>
-                     <div className="h-1.5 w-24 bg-blue-600 mx-auto rounded-full mb-8 shadow-[0_0_15px_rgba(37,99,235,0.5)]"></div>
+                    <div className="h-1.5 w-24 bg-blue-600 mx-auto rounded-full mb-8 shadow-[0_0_15px_rgba(37,99,235,0.5)]"></div>
+                    <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto text-lg md:text-xl font-medium italic capitalize">
+                        "Powering digital interfaces with a robust and modern tech stack."
+                    </p>
                 </motion.div>
 
-                <div className="lg:space-y-32 space-y-16">
+                <div className="space-y-16">
                     {skillGroups.map((group) => (
                         <div key={group.title} className="w-full">
                             <motion.div
                                 initial={{ opacity: 0, x: -50 }}
                                 whileInView={{ opacity: 1, x: 0 }}
                                 viewport={{ once: true }}
-                                className="flex flex-col items-center lg:mb-16 mb-8 space-y-4"
+                                className="flex flex-col items-center lg:mb-10 mb-8 space-y-4"
                             >
-                                <h3 className="text-2xl md:text-3xl font-black text-gray-900 dark:text-gray-100 uppercase tracking-[0.3em] flex items-center gap-4">
+                                <h3 className="text-lg sm:text-xl md:text-3xl font-black text-gray-900 dark:text-gray-100 uppercase tracking-[0.3em] flex items-center gap-4">
                                     <span className="w-12 h-[2px] bg-blue-600/30"></span>
                                     {group.title}
                                     <span className="w-12 h-[2px] bg-blue-600/30"></span>

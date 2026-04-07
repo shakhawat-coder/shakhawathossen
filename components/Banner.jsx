@@ -48,7 +48,7 @@ const Banner = () => {
                     initial={{ opacity: 0, x: -50 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.2, duration: 0.8 }}
-                    className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-gray-900 dark:text-white leading-tight"
+                    className="pt-20 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-gray-900 dark:text-white leading-tight"
                 >
                     Hi! I'm{" "}
                     <span className="text-blue-600 dark:text-blue-400">Shakhawat</span>
@@ -94,7 +94,7 @@ const Banner = () => {
                         style={{
                             display: "block",
                         }}
-                        className="text-base sm:text-lg text-gray-600 dark:text-gray-300 leading-relaxed mx-auto px-4"
+                        className="text-sm sm:text-lg text-gray-600 dark:text-gray-300 leading-relaxed mx-auto px-4"
                         repeat={0}
                         cursor={false}
                     />

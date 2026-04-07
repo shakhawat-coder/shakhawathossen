@@ -31,29 +31,24 @@ const Navbar = () => {
   useEffect(() => {
     setMounted(true);
     const handleScroll = () => setScrolled(window.scrollY > 20);
+    handleScroll();
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // useEffect(() => {
-  //   if (isMenuOpen) {
-  //     document.body.style.overflow = "hidden";
-  //     document.body.style.position = "fixed";
-  //     document.body.style.width = "100%";
-  //     document.documentElement.style.overflow = "hidden";
-  //   } else {
-  //     document.body.style.overflow = "";
-  //     document.body.style.position = "";
-  //     document.body.style.width = "";
-  //     document.documentElement.style.overflow = "";
-  //   }
-  //   return () => {
-  //     document.body.style.overflow = "";
-  //     document.body.style.position = "";
-  //     document.body.style.width = "";
-  //     document.documentElement.style.overflow = "";
-  //   };
-  // }, [isMenuOpen]);
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = "hidden";
+      document.documentElement.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+      document.documentElement.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+      document.documentElement.style.overflow = "";
+    };
+  }, [isMenuOpen]);
 
   const toggleTheme = () => {
     setTheme(resolvedTheme === "dark" ? "light" : "dark");
@@ -62,12 +57,12 @@ const Navbar = () => {
   const toggleMenu = () => setIsMenuOpen((prev) => !prev);
 
   return (
-    <nav className={`sticky lg:fixed  bg-white dark:bg-[#0D1117] lg:bg-transparent lg:dark:bg-transparent top-0 w-full z-50 transition-all duration-300 ${scrolled
+    <nav className={`fixed bg-white dark:bg-[#0D1117] lg:bg-transparent lg:dark:bg-transparent top-0 left-0 w-full z-50 transition-all duration-300 ${(mounted && scrolled)
       ? "backdrop-blur-xl bg-white/80 dark:bg-[#0D1117]/80 shadow-lg py-2"
-      : "bg-transparent py-2 lg:py-4"
+      : "bg-transparent py-2 lg:py-4 transition-all"
       }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-12 lg:h-16">
           <Link
             to="home"
             href="#home"
@@ -161,9 +156,10 @@ const Navbar = () => {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="md:hidden absolute top-full left-0 w-full bg-white dark:bg-[#0D1117] border-t border-gray-200 dark:border-gray-800 shadow-2xl overflow-y-scroll max-h-[calc(100vh-60px)]"
+            data-lenis-prevent
+            className="md:hidden absolute top-full left-0 w-full bg-white dark:bg-[#0D1117] border-t border-gray-200 dark:border-gray-800 shadow-2xl overflow-y-scroll max-h-[90vh] touch-pan-y"
           >
-            <ul className="flex flex-col p-6 space-y-2">
+            <ul className="flex flex-col p-6 space-y-1 h-[calc(100vh-64px)]">
               {navLinks.map((link, i) => (
                 <motion.li
                   key={link.name}
@@ -180,7 +176,7 @@ const Navbar = () => {
                     spy={true}
                     onClick={() => setIsMenuOpen(false)}
                     activeClass="!text-blue-600 dark:!text-blue-400 font-bold bg-blue-50 dark:bg-blue-900/20"
-                    className="flex w-full px-6 py-4 rounded-2xl text-lg font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-all"
+                    className="flex w-full px-6 py-2 rounded-2xl text-lg font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-all"
                   >
                     {link.name}
                   </Link>

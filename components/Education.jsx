@@ -68,7 +68,7 @@ const Education = () => {
                     viewport={{ once: true }}
                     className="text-center mb-12 md:mb-20"
                 >
-                    <h2 className="text-4xl md:text-6xl font-black text-gray-900 dark:text-white mb-6 uppercase tracking-tighter shadow-sm">
+                    <h2 className="text-3xl sm:text-4xl md:text-6xl font-black text-gray-900 dark:text-white mb-6 uppercase tracking-tighter shadow-sm">
                         Academic <span className="text-blue-600">Background</span>
                     </h2>
                     <div className="w-24 h-1.5 bg-blue-600 mx-auto rounded-full shadow-[0_0_15px_rgba(37,99,235,0.4)]" />

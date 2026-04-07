@@ -29,7 +29,7 @@ const Projects = () => {
           viewport={{ once: true }}
           className="text-center mb-12 md:mb-24"
         >
-          <h2 className="text-4xl md:text-6xl font-black text-gray-900 dark:text-white mb-6 uppercase tracking-tighter drop-shadow-2xl">
+          <h2 className="text-3xl sm:text-4xl md:text-6xl font-black text-gray-900 dark:text-white mb-6 uppercase tracking-tighter drop-shadow-2xl">
             Featured <span className="text-blue-600">Projects</span>
           </h2>
           <div className="h-1.5 w-24 bg-blue-600 mx-auto rounded-full mb-8 shadow-[0_0_15px_rgba(37,99,235,0.5)]"></div>

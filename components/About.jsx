@@ -79,7 +79,7 @@ const About = () => {
         </motion.div>
 
         <div className="flex-1 text-center md:text-left">
-          <h2 className="text-4xl md:text-6xl font-black mb-6 text-gray-900 dark:text-white uppercase tracking-tighter drop-shadow-2xl">
+          <h2 className="text-3xl sm:text-4xl md:text-6xl font-black mb-6 text-gray-900 dark:text-white uppercase tracking-tighter drop-shadow-2xl">
             My <span className="text-blue-600">Story</span>
           </h2>
           <div className="h-1.5 w-24 bg-blue-600 rounded-full mb-8 shadow-[0_0_15px_rgba(37,99,235,0.5)] mx-auto md:mx-0"></div>
