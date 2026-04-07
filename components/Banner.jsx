@@ -11,7 +11,7 @@ const Banner = () => {
         <section
             id="home"
             className="flex flex-col items-center justify-center min-h-screen 
-  py-20 sm:py-24 text-center px-4 sm:px-8 md:px-12 
+  py-12 sm:py-24 text-center px-4 sm:px-8 md:px-12 
   bg-[linear-gradient(rgba(255,255,255,0.7),rgba(255,255,255,0.7)),url('/bannerbg2.jpg')] 
   dark:bg-[linear-gradient(rgba(0,0,0,0.85),rgba(0,0,0,0.85)),url('/bannerbg2.jpg')] 
   bg-cover bg-center bg-no-repeat transition-colors duration-300 relative overflow-hidden"
@@ -63,15 +63,13 @@ const Banner = () => {
                     <TypeAnimation
                         sequence={[
                             "Frontend Developer",
-                            2500,
-                            "Professional Coder",
-                            2500,
-                            "React Developer",
-                            2500,
-                            "Tailwind CSS Specialist",
-                            2500,
-                            "Creative Coder",
-                            2500,
+                            2000,
+                            "React & Next.js Specialist",
+                            2000,
+                            "Tailwind CSS Expert",
+                            2000,
+                            "Modern Web Architect",
+                            2000,
                         ]}
                         speed={50}
                         repeat={Infinity}
@@ -88,7 +86,7 @@ const Banner = () => {
                     <TypeAnimation
                         splitter={(str) => str.split(/(?= )/)}
                         sequence={[
-                            "A passionate frontend developer creating responsive, accessible, and visually refined web interfaces. Focused on building seamless digital experiences with React, Tailwind CSS, and modern JavaScript. Blending creativity and functionality to craft user-focused designs that perform beautifully across all devices and leave a lasting impression.",
+                            "Building premium, high-performance web interfaces with React, Next.js, and modern CSS. Dedicated to clean architecture and exceptional user experiences.",
                             5000,
                         ]}
                         speed={{ type: "keyStrokeDelayInMs", value: 40 }}
@@ -109,7 +107,7 @@ const Banner = () => {
                     className="mt-10"
                 >
                     <Link
-                        href="/Shakhawat_Hossen_Resume_Classic.pdf"
+                        href="/MD-SHAKHAWAT-HOSSEN-FRONTEND.pdf"
                         download
                         className="inline-block"
                     >

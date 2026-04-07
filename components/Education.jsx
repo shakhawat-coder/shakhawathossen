@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 const education = [
     {
-        degree: "Bachelor of Science in Computer Science",
+        degree: "Bachelor of Science in Computer Science and Engineering",
         institution: "Delta Computer Science College",
         location: "Rangpur, Bangladesh",
         session: "2016-2017",
@@ -47,7 +47,7 @@ const Education = () => {
     return (
         <section
             id="education"
-            className="min-h-[70vh] flex flex-col justify-center items-center py-28 px-6 transition-colors duration-500 bg-[linear-gradient(rgba(255,255,255,0.85),rgba(255,255,255,0.85)),url('/bannerbg2.jpg')] dark:bg-[linear-gradient(rgba(0,0,0,0.92),rgba(0,0,0,0.92)),url('/bannerbg2.jpg')] bg-cover bg-center bg-fixed text-center relative overflow-hidden"
+            className="min-h-[70vh] flex flex-col justify-center items-center py-16 md:py-28 px-6 transition-colors duration-500 bg-[linear-gradient(rgba(255,255,255,0.85),rgba(255,255,255,0.85)),url('/bannerbg2.jpg')] dark:bg-[linear-gradient(rgba(0,0,0,0.92),rgba(0,0,0,0.92)),url('/bannerbg2.jpg')] bg-cover bg-center bg-fixed text-center relative overflow-hidden"
         >
             {/* Background Decorative Elements */}
             <motion.div
@@ -66,7 +66,7 @@ const Education = () => {
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="text-center mb-20"
+                    className="text-center mb-12 md:mb-20"
                 >
                     <h2 className="text-4xl md:text-6xl font-black text-gray-900 dark:text-white mb-6 uppercase tracking-tighter shadow-sm">
                         Academic <span className="text-blue-600">Background</span>

@@ -35,6 +35,26 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // useEffect(() => {
+  //   if (isMenuOpen) {
+  //     document.body.style.overflow = "hidden";
+  //     document.body.style.position = "fixed";
+  //     document.body.style.width = "100%";
+  //     document.documentElement.style.overflow = "hidden";
+  //   } else {
+  //     document.body.style.overflow = "";
+  //     document.body.style.position = "";
+  //     document.body.style.width = "";
+  //     document.documentElement.style.overflow = "";
+  //   }
+  //   return () => {
+  //     document.body.style.overflow = "";
+  //     document.body.style.position = "";
+  //     document.body.style.width = "";
+  //     document.documentElement.style.overflow = "";
+  //   };
+  // }, [isMenuOpen]);
+
   const toggleTheme = () => {
     setTheme(resolvedTheme === "dark" ? "light" : "dark");
   };
@@ -42,9 +62,9 @@ const Navbar = () => {
   const toggleMenu = () => setIsMenuOpen((prev) => !prev);
 
   return (
-    <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled
-      ? "backdrop-blur-xl bg-white/80 dark:bg-[#0D1117]/80 border-b border-gray-200 dark:border-gray-800 py-2"
-      : "bg-transparent py-4"
+    <nav className={`sticky lg:fixed  bg-white dark:bg-[#0D1117] lg:bg-transparent lg:dark:bg-transparent top-0 w-full z-50 transition-all duration-300 ${scrolled
+      ? "backdrop-blur-xl bg-white/80 dark:bg-[#0D1117]/80 shadow-lg py-2"
+      : "bg-transparent py-2 lg:py-4"
       }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
@@ -63,7 +83,7 @@ const Navbar = () => {
             >
               S
             </motion.div>
-            <span className="text-xl font-bold tracking-tighter text-gray-900 dark:text-white group-hover:text-blue-600 transition-colors">SHAKHAWAT</span>
+            <span className="text-xl font-bold tracking-tighter text-gray-900 dark:text-white group-hover:text-blue-600 transition-colors hidden lg:block">SHAKHAWAT</span>
           </Link>
 
           <div className="hidden md:flex items-center space-x-1">
@@ -141,7 +161,7 @@ const Navbar = () => {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="md:hidden absolute top-full left-0 w-full bg-white dark:bg-[#0D1117] border-t border-gray-200 dark:border-gray-800 shadow-2xl overflow-hidden"
+            className="md:hidden absolute top-full left-0 w-full bg-white dark:bg-[#0D1117] border-t border-gray-200 dark:border-gray-800 shadow-2xl overflow-y-scroll max-h-[calc(100vh-60px)]"
           >
             <ul className="flex flex-col p-6 space-y-2">
               {navLinks.map((link, i) => (

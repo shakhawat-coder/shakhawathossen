@@ -9,7 +9,7 @@ const Projects = () => {
   return (
     <section
       id="mywork"
-      className="min-h-screen flex flex-col justify-center items-center py-32 px-6 transition-colors duration-500 bg-[linear-gradient(rgba(255,255,255,0.8),rgba(255,255,255,0.8)),url('/bannerbg2.jpg')] dark:bg-[linear-gradient(rgba(0,0,0,0.9),rgba(0,0,0,0.9)),url('/bannerbg2.jpg')] bg-cover bg-center bg-fixed relative overflow-hidden"
+      className="min-h-screen flex flex-col justify-center items-center py-16 md:py-32 px-6 transition-colors duration-500 bg-[linear-gradient(rgba(255,255,255,0.8),rgba(255,255,255,0.8)),url('/bannerbg2.jpg')] dark:bg-[linear-gradient(rgba(0,0,0,0.9),rgba(0,0,0,0.9)),url('/bannerbg2.jpg')] bg-cover bg-center bg-fixed relative overflow-hidden"
     >
       {/* Background Decorative Elements */}
       <motion.div
@@ -27,9 +27,9 @@ const Projects = () => {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-24"
+          className="text-center mb-12 md:mb-24"
         >
-          <h2 className="text-4xl md:text-7xl font-black text-gray-900 dark:text-white mb-6 uppercase tracking-tighter drop-shadow-2xl">
+          <h2 className="text-4xl md:text-6xl font-black text-gray-900 dark:text-white mb-6 uppercase tracking-tighter drop-shadow-2xl">
             Featured <span className="text-blue-600">Projects</span>
           </h2>
           <div className="h-1.5 w-24 bg-blue-600 mx-auto rounded-full mb-8 shadow-[0_0_15px_rgba(37,99,235,0.5)]"></div>
@@ -47,7 +47,7 @@ const Projects = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="group relative bg-white/40 dark:bg-[#161B22]/50 backdrop-blur-2xl rounded-[2.5rem] border-2 border-white/30 dark:border-white/10 overflow-hidden shadow-2xl transition-all duration-500 hover:shadow-blue-600/10 hover:border-blue-600/30"
+              className="group relative bg-white/40 dark:bg-[#161B22]/50 backdrop-blur-2xl rounded-[1.5rem] border-2 border-white/30 dark:border-white/10 overflow-hidden shadow-2xl transition-all duration-500 hover:shadow-blue-600/10 hover:border-blue-600/30"
             >
               <div className="overflow-hidden h-72 relative">
                 <Image

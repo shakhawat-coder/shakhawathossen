@@ -38,7 +38,7 @@ const ProjectDetails = () => {
                 />
             </div>
 
-            <div className="relative z-10 max-w-7xl mx-auto px-6 py-20 lg:py-32">
+            <div className="relative z-10 max-w-7xl mx-auto px-6 py-10">
                 {/* Header / Back Navigation */}
                 <motion.div
                     initial={{ opacity: 0, x: -20 }}
@@ -64,7 +64,7 @@ const ProjectDetails = () => {
                         transition={{ delay: 0.2 }}
                         className="lg:col-span-7 space-y-8"
                     >
-                        <div className="group relative rounded-[3rem] overflow-hidden border-2 border-white/10 shadow-2xl bg-gray-900 group">
+                        <div className="group relative rounded-[1rem] overflow-hidden border-2 border-white/10 shadow-2xl bg-gray-900 group">
                             <div className="overflow-hidden aspect-video">
                                 <Image
                                     src={project.image}
@@ -79,15 +79,15 @@ const ProjectDetails = () => {
                         </div>
 
                         <div className="flex flex-wrap gap-6">
-                            <a
+                            <Link
                                 href={project.link}
                                 target="_blank"
                                 rel="noreferrer"
                                 className="flex-1 min-w-[200px] bg-blue-600 hover:bg-blue-700 text-white h-20 rounded-3xl flex items-center justify-center gap-4 font-black uppercase text-sm tracking-[0.2em] shadow-2xl shadow-blue-600/30 transition-all transform hover:-translate-y-2 active:scale-95"
                             >
                                 <FaExternalLinkAlt /> Launch Live Project
-                            </a>
-                            <a
+                            </Link>
+                            {/* <a
                                 href={project.githubClient}
                                 target="_blank"
                                 rel="noreferrer"
@@ -95,7 +95,7 @@ const ProjectDetails = () => {
                             >
                                 <FaGithub className="text-2xl" />
                                 <span className="font-black uppercase text-xs tracking-widest hidden sm:block">Client Code</span>
-                            </a>
+                            </a> */}
                         </div>
                     </motion.div>
 
@@ -107,7 +107,7 @@ const ProjectDetails = () => {
                         className="lg:col-span-5 space-y-12"
                     >
                         <div>
-                            <h1 className="text-5xl md:text-7xl font-black text-white mb-4 leading-none uppercase tracking-tighter drop-shadow-2xl">
+                            <h1 className="text-5xl md:text-6xl font-black text-white mb-4 leading-none uppercase tracking-tighter drop-shadow-2xl">
                                 {project.title}
                             </h1>
                             <p className="text-blue-500 font-black uppercase text-sm tracking-[0.4em] mb-8">

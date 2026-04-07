@@ -66,7 +66,7 @@ const Contact = () => {
   return (
     <section
       id="contact"
-      className="relative min-h-screen py-20 px-4 sm:px-6 lg:px-8 transition-colors duration-500 bg-gray-50 dark:bg-[#0D1117] overflow-hidden"
+      className="relative min-h-screen py-16 md:py-20 px-4 sm:px-6 lg:px-8 transition-colors duration-500 bg-gray-50 dark:bg-[#0D1117] overflow-hidden"
     >
       {/* Background decoration */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl -z-10 translate-x-1/2 -translate-y-1/2"></div>
@@ -79,10 +79,11 @@ const Contact = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+          <h2 className="text-4xl md:text-6xl font-black text-gray-900 dark:text-white mb-6 uppercase tracking-tighter drop-shadow-2xl">
             Get In <span className="text-blue-600">Touch</span>
           </h2>
-          <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto text-lg">
+          <div className="h-1.5 w-24 bg-blue-600 mx-auto rounded-full mb-8 shadow-[0_0_15px_rgba(37,99,235,0.5)]"></div>
+          <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto text-lg md:text-xl font-medium">
             Have a project in mind or just want to chat? I'm always open to new opportunities and collaborations.
           </p>
         </motion.div>

@@ -101,7 +101,7 @@ const Skills = () => {
     return (
         <section
             id="skills"
-            className="min-h-screen flex flex-col justify-center items-center text-gray-800 dark:text-gray-200 px-6 py-24 transition-colors duration-500 bg-[linear-gradient(rgba(255,255,255,0.7),rgba(255,255,255,0.7)),url('/skillbg2.jpg')] dark:bg-[linear-gradient(rgba(0,0,0,0.9),rgba(0,0,0,0.9)),url('/skillbg2.jpg')] bg-cover bg-center bg-fixed text-center relative overflow-hidden"
+            className="min-h-screen flex flex-col justify-center items-center text-gray-800 dark:text-gray-200 px-4 py-16 md:py-24 transition-colors duration-500 bg-[linear-gradient(rgba(255,255,255,0.7),rgba(255,255,255,0.7)),url('/skillbg2.jpg')] dark:bg-[linear-gradient(rgba(0,0,0,0.9),rgba(0,0,0,0.9)),url('/skillbg2.jpg')] bg-cover bg-center bg-fixed text-center relative overflow-hidden"
         >
             {/* Graphical Background Elements */}
             <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.07] pointer-events-none" style={{ backgroundImage: "radial-gradient(#2563EB 1px, transparent 1px)", backgroundSize: "30px 30px" }}></div>
@@ -112,29 +112,22 @@ const Skills = () => {
                     initial={{ opacity: 0, y: -40 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="mb-24 relative inline-block"
+                    className="mb-12 md:mb-24 relative inline-block"
                 >
-                    <h2 className="text-4xl md:text-7xl font-black mb-6 text-gray-900 dark:text-white uppercase tracking-tighter drop-shadow-2xl">
+                    <h2 className="text-4xl md:text-6xl font-black mb-6 text-gray-900 dark:text-white uppercase tracking-tighter drop-shadow-2xl">
                         My <span className="text-blue-600">Skills</span>
                     </h2>
-                    <div className="h-2 w-full bg-blue-600/20 rounded-full overflow-hidden absolute -bottom-2">
-                        <motion.div
-                            initial={{ x: "-100%" }}
-                            whileInView={{ x: "100%" }}
-                            transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-                            className="w-1/2 h-full bg-blue-600 shadow-[0_0_15px_rgba(37,99,235,0.8)]"
-                        />
-                    </div>
+                     <div className="h-1.5 w-24 bg-blue-600 mx-auto rounded-full mb-8 shadow-[0_0_15px_rgba(37,99,235,0.5)]"></div>
                 </motion.div>
 
-                <div className="space-y-32">
+                <div className="lg:space-y-32 space-y-16">
                     {skillGroups.map((group) => (
                         <div key={group.title} className="w-full">
                             <motion.div
                                 initial={{ opacity: 0, x: -50 }}
                                 whileInView={{ opacity: 1, x: 0 }}
                                 viewport={{ once: true }}
-                                className="flex flex-col items-center mb-16 space-y-4"
+                                className="flex flex-col items-center lg:mb-16 mb-8 space-y-4"
                             >
                                 <h3 className="text-2xl md:text-3xl font-black text-gray-900 dark:text-gray-100 uppercase tracking-[0.3em] flex items-center gap-4">
                                     <span className="w-12 h-[2px] bg-blue-600/30"></span>
@@ -187,7 +180,7 @@ const Skills = () => {
                                                 <p className="text-[10px] font-black text-gray-900 dark:text-gray-300 uppercase tracking-wider group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors text-center">
                                                     {skill.name}
                                                 </p>
-                                                <span className="text-[9px] font-bold text-blue-600 dark:text-blue-400 opacity-0 group-hover:opacity-100 transition-opacity">
+                                                <span className="text-[9px] font-bold text-blue-600 dark:text-blue-400 hidden lg:block opacity-0 group-hover:opacity-100 transition-opacity">
                                                     {skill.level}%
                                                 </span>
                                             </div>

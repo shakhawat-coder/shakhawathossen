@@ -21,10 +21,10 @@ const About = () => {
   return (
     <section
       id="about"
-      className="min-h-screen flex flex-col justify-center items-center bg-white dark:bg-[#0D1117] text-gray-800 dark:text-gray-200 px-6 py-20 transition-colors duration-500 overflow-hidden relative"
+      className="min-h-screen flex flex-col justify-center items-center bg-white dark:bg-[#0D1117] text-gray-800 dark:text-gray-200 px-6 py-16 md:py-20 transition-colors duration-500 overflow-hidden relative"
     >
       {/* Visual Background Accents */}
-      <motion.div
+      <div
         animate={{
           scale: [1, 1.1, 1],
           opacity: [0.3, 0.5, 0.3],
@@ -41,7 +41,7 @@ const About = () => {
         className="absolute bottom-1/4 -left-10 w-[300px] h-[300px] bg-indigo-600/5 dark:bg-indigo-600/10 rounded-full blur-[80px] pointer-events-none"
       />
 
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12 lg:gap-24 z-10">
+      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-8 lg:gap-24 z-10">
 
         {/* Profile Image with Refined Animation */}
         <motion.div
@@ -79,21 +79,17 @@ const About = () => {
         </motion.div>
 
         <div className="flex-1 text-center md:text-left">
-          <motion.h2
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="text-4xl md:text-6xl font-black mb-8 text-gray-900 dark:text-white"
-          >
+          <h2 className="text-4xl md:text-6xl font-black mb-6 text-gray-900 dark:text-white uppercase tracking-tighter drop-shadow-2xl">
             My <span className="text-blue-600">Story</span>
-          </motion.h2>
+          </h2>
+          <div className="h-1.5 w-24 bg-blue-600 rounded-full mb-8 shadow-[0_0_15px_rgba(37,99,235,0.5)] mx-auto md:mx-0"></div>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2, duration: 0.8 }}
-            className="space-y-6 text-gray-600 dark:text-gray-400 text-lg md:text-xl leading-relaxed max-w-2xl"
+            className="space-y-6 text-gray-600 dark:text-gray-400 text-sm sm:text-base lg:text-xl leading-relaxed max-w-2xl"
           >
             <p>
               I'm a results-driven frontend developer with over a year of hands-on
