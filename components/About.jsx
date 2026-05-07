@@ -13,9 +13,9 @@ const About = () => {
       transition: {
         delay: i * 0.1,
         duration: 0.6,
-        ease: "easeOut"
-      }
-    })
+        ease: "easeOut",
+      },
+    }),
   };
 
   return (
@@ -42,7 +42,6 @@ const About = () => {
       />
 
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-8 lg:gap-24 z-10">
-
         {/* Profile Image with Refined Animation */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8, rotate: -3 }}
@@ -69,12 +68,14 @@ const About = () => {
             animate={{ y: [0, -8, 0] }}
             transition={{
               opacity: { duration: 0.5, delay: 0.5 },
-              y: { duration: 4, repeat: Infinity, ease: "easeInOut" }
+              y: { duration: 4, repeat: Infinity, ease: "easeInOut" },
             }}
             className="absolute -bottom-6 -right-6 bg-blue-600 text-white p-6 rounded-2xl shadow-xl z-20 hidden sm:block"
           >
             <p className="text-3xl font-bold">1+</p>
-            <p className="text-xs uppercase tracking-widest font-semibold">Years Exp.</p>
+            <p className="text-xs uppercase tracking-widest font-semibold">
+              Years Exp.
+            </p>
           </motion.div>
         </motion.div>
 
@@ -92,38 +93,58 @@ const About = () => {
             className="space-y-6 text-gray-600 dark:text-gray-400 text-sm sm:text-base lg:text-xl leading-relaxed max-w-2xl"
           >
             <p>
-              I'm a results-driven frontend developer with over a year of hands-on
-              experience — including 6 months as a{" "}
+              I’m a results-driven{" "}
+              <span className="font-bold text-blue-600 dark:text-blue-400 underline decoration-2 underline-offset-4">
+                Full Stack Developer
+              </span>{" "}
+              with over a year of professional experience, including working as
+              a{" "}
               <span className="font-bold text-blue-600 dark:text-blue-400 underline decoration-2 underline-offset-4">
                 Frontend Design Intern
               </span>{" "}
-              and 1+ year as a{" "}
+              and{" "}
               <span className="font-bold text-blue-600 dark:text-blue-400 underline decoration-2 underline-offset-4">
                 Junior Frontend Developer
               </span>
-              . My work centers on transforming creative ideas into functional,
-              engaging digital interfaces.
+              . I specialize in building responsive, scalable, and user-focused
+              web applications using modern technologies like React, Next.js,
+              TypeScript, Node.js, and PostgreSQL.
             </p>
 
             <p>
-              I thrive on solving UI/UX challenges, ensuring every element serves
-              both purpose and polish. I enjoy collaborating with teams, learning
-              from real-world projects, and continuously exploring new front-end
-              tools and performance optimization techniques.
+              I enjoy turning ideas into intuitive digital experiences by
+              combining clean UI design with efficient backend architecture.
+              Passionate about solving real-world problems, I focus on
+              performance, usability, and writing maintainable code that
+              delivers seamless user experiences.
             </p>
 
             <p>
-              My work bridges the gap between design and development, ensuring
-              every interface feels intuitive, engaging, and technically solid.
+              I’m constantly learning, exploring modern technologies, and
+              improving my skills through real-world projects and collaboration.
+              My goal is to build applications that are not only functional, but
+              also meaningful and impactful.
             </p>
           </motion.div>
 
           {/* Cards with Glassmorphism */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-12">
             {[
-              { title: "Experience", desc: "1+ year in frontend development roles.", icon: "🚀" },
-              { title: "Work Style", desc: "Collaborative and detail-oriented.", icon: "💎" },
-              { title: "Focus", desc: "Next.js & TypeScript specialist.", icon: "⚡" }
+              {
+                title: "Experience",
+                desc: "1+ year in frontend development roles.",
+                icon: "🚀",
+              },
+              {
+                title: "Work Style",
+                desc: "Collaborative and detail-oriented.",
+                icon: "💎",
+              },
+              {
+                title: "Next Goal",
+                desc: "Docker & Golang.",
+                icon: "⚡",
+              },
             ].map((item, i) => (
               <motion.div
                 key={i}
@@ -135,7 +156,9 @@ const About = () => {
                 whileHover={{ y: -5 }}
                 className="p-6 bg-gray-50/50 dark:bg-gray-800/30 rounded-2xl border border-gray-100 dark:border-white/10 shadow-sm backdrop-blur-md hover:shadow-xl hover:shadow-blue-500/10 transition-all group"
               >
-                <span className="text-3xl mb-4 block transform group-hover:scale-110 transition-transform">{item.icon}</span>
+                <span className="text-3xl mb-4 block transform group-hover:scale-110 transition-transform">
+                  {item.icon}
+                </span>
                 <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 transition-colors">
                   {item.title}
                 </h3>
@@ -146,11 +169,9 @@ const About = () => {
             ))}
           </div>
         </div>
-
       </div>
     </section>
   );
 };
 
 export default About;
-
